@@ -1,4 +1,10 @@
-const h2 = document.createElement("h2");
-h2.textContent = "This content added by JavaScript";
-
-document.querySelector("body").appendChild(h2);
+document.addEventListener('DOMContentLoaded', () => {
+    const experienceItems = document.querySelectorAll('#experience li');
+    experienceItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const detailParagraph = document.createElement('p');
+            detailParagraph.textContent = "More on what I've learned " + this.firstChild.nodeValue;
+            this.appendChild(detailParagraph);
+        });
+    });
+});
